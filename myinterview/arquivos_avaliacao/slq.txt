@@ -1,0 +1,28 @@
+use employees;
+SELECT * FROM employees;
+desc employees;
+
+-- Query que retorna a quantidade de funcionários separados por sexo.
+SELECT 
+	(SELECT count(*) FROM employees WHERE gender = 'M') as quantidade_funcionarios_masculinos,
+	(SELECT count(*) FROM employees WHERE gender = 'F') as quantidade_funcionarios_femininos;
+
+-- Query que retorna a quantidade de funcionários distintos por sexo, ano e ano de nascimento.
+SELECT
+	YEAR(birth_date) as ano_nascimento,
+	YEAR(hire_date) as ano_contratacao,
+	gender as sexo,
+	count(*) as quantidade_funcionarios
+FROM employees
+GROUP BY sexo, ano_contratacao, ano_nascimento
+ORDER BY ano_nascimento, ano_contratacao, sexo;
+
+-- Query que retorna a média, min e max de salário por sexo.
+SELECT * FROM salaries;
+SELECT e.gender as sexo,
+		ROUND(AVG(s.salary),2) as media_salarial, 
+		MIN(s.salary) as valor_menor_salario, 
+		MAX(s.salary) as valor_maior_salario 
+FROM salaries s 
+INNER JOIN employees e ON e.emp_no = s.emp_no 
+GROUP BY e.gender;

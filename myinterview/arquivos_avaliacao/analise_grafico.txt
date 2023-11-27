@@ -1,0 +1,8 @@
+Análise do gráfico Memory / CPU em 24 horas:
+
+Memory: Na maior parte do tempo a memória está sendo pouco utilizada, com alguns picos as 1h, 6h, 13h e 18h, 
+sendo suficiente para ultrapassar a memória desejada no 'Thresholds' que era até 270;
+CPU: O processador iniciou o dia com a utilização proxíma zero as 22h e foi aumentando até as 4h onde reverteu e
+passou a acontecer o processo contrário até as 11h onde voltou a repetir a subida até os 23% de utilização novamente,
+assim repetindo o ciclo. Concluindo o uso da CPU está bem otimizado, pois o seu pico ficou abaixo dos 25% e se deu
+por conta do aumento do número de logins.
